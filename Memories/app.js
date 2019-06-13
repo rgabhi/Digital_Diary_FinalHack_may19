@@ -50,7 +50,8 @@ app.get("/diary",function(req,res){
             console.log("ERROR!");
         }
         else{
-            res.render("index.ejs",{pages : pages});
+            // res.render("index.ejs",{pages : pages});
+            res.json(pages).status(200);
         }
     })
 
