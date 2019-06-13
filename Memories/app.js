@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 const diary = require('./routes/diary');
+const user = require('./routes/user');
 
 // App configuration
 mongoose.set('useCreateIndex', true);
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 //Diary Route
 
 app.use('/diary',diary);
+app.use('/user',user);
 
 
 // Mongoose Model Configuration
@@ -36,9 +38,10 @@ app.use('/diary',diary);
 //        image : "https://images.unsplash.com/flagged/photo-1556669546-b1f29875df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
 //        body : "Hello this is a first diary page"
 //    });
-app.get("/",function(req,res){
-    res.redirect('/diary'); 
-})
+
+// app.get("/",function(req,res){
+//     res.redirect('/diary'); 
+// })
 
 
 
