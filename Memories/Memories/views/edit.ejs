@@ -1,0 +1,28 @@
+<% include ./partials/header %> 
+<div class="ui main text container segment">
+    <div class = "ui huge header">EDIT  <%= page.title %></div>
+    
+    <form class="ui form" action="/diary/<%= page._id%>?_method=PUT" method="POST">
+        <div class="field">
+            <label >Title</label>
+            <input type="text" name="page[title]" value="<%=page.title%>">
+        </div>
+        <div class="field">
+                <label >Image</label>
+                <input type="text" name="page[image]" value="<%=page.image%>">
+        </div>
+       
+        <div class="field">
+                <label >Page Content</label>
+                <textarea name="page[body]" ><%= page.body %></textarea>
+               
+        </div>
+            
+        <input class="ui inverted big green button" type="submit">
+    
+   
+    
+    
+    </form>
+</div>
+<%include ./partials/footer %>
