@@ -1,24 +1,30 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//Testing out gitpush with this comment 
+const methodOverride = require("method-override");
+ const expressSanitizer = require("express-sanitizer");
+const ejs = require("ejs");
+
+
 const app = express();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3002;
 
 
 // App configuration
 mongoose.set('useCreateIndex', true);
 mongoose.connect("mongodb+srv://rgabhi:abhi1998@cluster0-f3ajx.mongodb.net/diary?retryWrites=true&w=majority",{ useNewUrlParser: true },function(err){
-    if(err){
+    if(err){  
         console.log(err);
     }else{
         console.log("Atlas conected");
     }
 });
-// app.set("view engine", "ejs" ) 
+app.set("view engine", "ejs" );
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
+
+app.use(methodOverride("_method"));
 
 
 
@@ -40,7 +46,8 @@ var Diary = mongoose.model("Diary", diarySchema);
 //        body : "Hello this is a first diary page"
 //    });
 app.get("/",function(req,res){
-    res.redirect("/diary"); 
+    // res.redirect("/diary");
+    res.render("front.ejs");   
 })
 
 // INDEX ROUTE
@@ -65,6 +72,7 @@ app.get("/diary/new",function(req,res){
 
 //CREATE ROUTE
 app.post("/diary",function(req,res){
+    
     Diary.create(req.body.page,function(err,newPage){
         if(err){
             res.render("new.ejs");
@@ -80,17 +88,48 @@ app.post("/diary",function(req,res){
 app.get("/diary/:id",function(req,res){
       Diary.findById(req.params.id,function(err,foundPage){
             if(err){
-                res.redirect('./diary');
+                res.redirect('/diary');
             }else{
                 res.render("show.ejs",{page : foundPage})
             }
       });
-})
+});
+//EDIT ROUTE
+app.get("/diary/:id/edit",function(req,res){
+    Diary.findById(req.params.id, function(err,foundPage){
+        if(err){
+            res.redirect("/blogs");
+        } else{
+            res.render("edit.ejs",{page : foundPage});
+        }
+    });
+   
+});
+//UPDATE ROUTE
 
-      
+app.put("/diary/:id",function(req,res){
+    
+    Diary.findByIdAndUpdate(req.params.id,req.body.page,function(err,updatedPage){
+        if(err){
+            res.redirect("/diary");
+        }else{
+            res.redirect("/diary/" + req.params.id);
+        }
+    });
+});
 
+//DELETE ROUTE
+app.delete("/diary/:id",function(req,res){
+   Diary.findByIdAndRemove(req.params.id,function(err){
+       if(err){
+           res.redirect("/diary");
+       }else{
+           res.redirect("/diary");
+       }
+   });
+});
 
-
+   
 
 
 
