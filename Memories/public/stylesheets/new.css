@@ -1,0 +1,64 @@
+.thumb-image{
+    float:left;width:100px;
+    position:relative;
+    padding:5px;
+   }
+
+   #uiMain{
+       border-style: solid;
+       border-width: 5px;
+       font-size: 14px;
+       height: 130%;
+       /* //width: 70%; */
+       background: #fff;
+  box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+    /* The second layer */
+    0 10px 0 -5px #eee,
+    /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+     /* The third layer */
+    0 20px 0 -10px #eee,
+    /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
+    padding: 30px;
+       
+   }
+   input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+#cursive{
+    font-family: 'Waiting for the Sunrise', cursive; 
+    font-size:30px; 
+    margin: 10px 0px; 
+    letter-spacing: 6px; 
+    font-weight: bold;
+  } 
+
+  #typerwrite{
+    text-align: center;
+    color:rgb(211, 158, 44);
+    padding-top:10em;
+
+  }
+  
+   * { color:rgb(211, 158, 44); text-decoration: none;} 
+
+.mood{
+    width: 150px;
+    height: 150px;
+}  
+#image{
+    width: 150px;
+    height: 150px;
+}  
+
+
+    
+    
