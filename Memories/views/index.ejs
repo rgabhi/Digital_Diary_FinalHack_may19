@@ -4,7 +4,7 @@
     <div class="ui huge header">INDEX</div>
     <div class="ui top attached segment">
         <div class="ui divided items">
-            <% pages.forEach(function(page){ %>
+            <% pages.forEach(function(page){ if(userName  ===  page.author.username ){%>
                 <!-- <div style="margin-top: 100px; margin-left: 30%"> -->
                 <div class="item">
                     <div class="image">
@@ -30,7 +30,7 @@
                     
                     
                 </div>  
-            <% }) %>
+            <%} }) %>
         </div>
     </div>
 </div>
