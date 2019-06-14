@@ -1,19 +1,22 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const methodOverride = require("method-override");
- const expressSanitizer = require("express-sanitizer");
-const ejs = require("ejs");
+var express = require("express");
+var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
+var methodOverride = require("method-override");
+var expressSanitizer = require("express-sanitizer");
+var ejs = require("ejs");
+var passport = require("passport");
+var LocalStrategy = require("passport-local");
+var passportLocalMongoose = require("passport-local-mongoose");
 
 
-const app = express();
+var app = express();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3003;
 
-const diary = require('./routes/diary');
-const user = require('./routes/user');
+var diary = require('./routes/diary'); 
+var user = require('./routes/user');
+  
 
-// App configuration
 mongoose.set('useCreateIndex', true);
 mongoose.connect("mongodb+srv://rgabhi:abhi1998@cluster0-f3ajx.mongodb.net/diary?retryWrites=true&w=majority",{ useNewUrlParser: true },function(err){
     if(err){  
@@ -24,34 +27,29 @@ mongoose.connect("mongodb+srv://rgabhi:abhi1998@cluster0-f3ajx.mongodb.net/diary
 });
 app.set("view engine", "ejs" );
 app.use(express.static("public"));
-app.use('/uploads', express.static("uploads"));
 app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(methodOverride("_method"));
 
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret : "Professional Geek",
+    resave : false,
+    saveUninitialized : false
+}));
 
 
+app.use(passport.initialize());
+app.use(passport.session());
 
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
-// Mongoose Model Configuration
-// Moved to Models
-
-
-// RESTFUL ROUTES
-
-//    Diary.create({
-//        title : "Test Page",
-//        image : "https://images.unsplash.com/flagged/photo-1556669546-b1f29875df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-//        body : "Hello this is a first diary page"
-//    });
-app.get("/",function(req,res){
-    // res.redirect("/diary");
-    res.render("front.ejs");   
-})
 
 
 app.use('/diary',diary);
-app.use('/user',user);
+app.use(user);
 
 
 app.listen(port,function(){
