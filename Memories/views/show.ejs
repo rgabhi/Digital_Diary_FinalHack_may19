@@ -1,4 +1,21 @@
-<% include ./partials/header %> 
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Diary App</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body>
+         <div class="ui fixed inverted menu">
+                 <div class="ui container">
+                        <div class= "header item">INDEX </div> 
+                        <a href="/diary" class="item">HOME</a>
+                        <a href="/diary/new" class="item">New Page</a>
+                        <a href="/register" class="item">Sign Up!</a>
+                        <a href="/login" class="item">Login!</a>
+                        <a href="/logout" class="item">Log out</a>
+                </div>
+        </div>
 <div class="ui main text container segment">
     <div class = "ui header"><%= page.title %></div>
     <img style="height: 300px; width:300px" src="<%= page.image %> ">
@@ -12,4 +29,6 @@
     </form>
      
 </div>
-<%include ./partials/footer %>
+</body>
+    
+</html>

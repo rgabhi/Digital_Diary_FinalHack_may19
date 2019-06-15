@@ -19,7 +19,7 @@ passport.deserializeUser(User.deserializeUser());
 
 router.get("/",function(req,res){
     // res.redirect("/diary");
-    res.redirect("login");   
+    res.render("front");   
 })
   
 
@@ -57,7 +57,7 @@ router.post("/login", passport.authenticate("local",{
 });
 
 
-// LOgout 
+// Logout 
 router.get("/logout", function(req,res){
     req.logout();
     res.redirect("/");
