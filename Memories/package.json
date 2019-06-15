@@ -4,7 +4,7 @@
   "description": "A digital diary",
   "main": "app.js",
   "scripts": {
-    "start": "echo \"Error: no test specified\""
+    "start": "nodemon app.js"
   },
   "author": "AG",
   "license": "ISC",
@@ -17,7 +17,8 @@
     "mime": "^1.6.0",
     "mime-types": "^2.1.24",
     "mongoose": "^5.5.15",
-    "multer": "^1.4.1"
+    "multer": "^1.4.1",
+    "nodemon": "^1.19.1"
   },
   "devDependencies": {}
 }
