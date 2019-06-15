@@ -52,7 +52,7 @@ router.post('/',isLoggedIn,function(req,res){
 
 //SHOW ROUTE
 
-router.get('/:id',function(req,res){
+router.get('/:id',isLoggedIn,function(req,res){
       Diary.findById(req.params.id,function(err,foundPage){
             if(err){
                 res.redirect('/diary');
@@ -62,7 +62,7 @@ router.get('/:id',function(req,res){
       });
 });
 //EDIT ROUTE
-router.get("/:id/edit",function(req,res){
+router.get("/:id/edit",isLoggedIn,function(req,res){
     Diary.findById(req.params.id, function(err,foundPage){
         if(err){
             res.redirect("/diary");
@@ -75,7 +75,7 @@ router.get("/:id/edit",function(req,res){
 
 //UPDATE ROUTE
 
-router.put("/:id",function(req,res){
+router.put("/:id",isLoggedIn,function(req,res){
     var title = req.body.title;
     var image = req.body.image;
     var body = req.body.bodyy; 
@@ -95,7 +95,7 @@ router.put("/:id",function(req,res){
 });
 
 //DELETE ROUTE
-router.delete("/:id",function(req,res){
+router.delete("/:id",isLoggedIn,function(req,res){
     Diary.findByIdAndRemove(req.params.id,function(err){
         if(err){
             res.redirect("/diary");
