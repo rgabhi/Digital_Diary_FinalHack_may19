@@ -12,10 +12,11 @@ router.get('/',isLoggedIn,function(req,res){
             console.log("ERROR!");
         }
         else{
-            console.log(pages);
+            // console.log(pages);
             // console.log({author:{  id :  req.user._id }});
+            // console.log(author.id);
             // console.log(req.user.username)
-             res.render("index.ejs",{pages : pages});
+             res.render("index.ejs",{pages : pages, userName: req.user.username});
             // res.json(pages).status(200);
         }
     });
