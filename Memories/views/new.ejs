@@ -17,9 +17,9 @@
     
 </head>
 <body > 
-        <div class="ui main text container segment" id="uiMain">
+        <div class="ui main text container segment" id="uiMain" style="background-color:rgb(245, 245, 209)">
 
-                <h1  class = "ui huge header " id="typewrite">
+                <h1  class = "ui huge header " id="typewrite" >
                         <a href="" class="typewrite" data-period="2000"  style="text-align: center" data-type='[ "Hello Dear", "Happy Writing :) " ]'>
                           <span class="wrap"></span>
                         </a>
@@ -29,11 +29,11 @@
                 <form class="ui form" action="/diary" method="POST" enctype="multipart/form-data" id="uploadimages">
                     <div class="field">
                         
-                        <input type="text" name="page[title]" placeholder="title">
+                        <input type="text" name="page[title]" placeholder="title" style="background-color:rgb(245, 245, 209)">
                     </div>
                     <div class="field">
                             
-                            <input type="file" id="files" name="page[image]" placeholder="image" >
+                            <input type="file" id="files" name="page[image]" placeholder="image" style="background-color:rgb(245, 245, 209)" >
                             <img id="image"> 
                             
                                 <video id="video" width="150px" height="150px" autoplay></video>
@@ -47,7 +47,7 @@
                    
                     <div class="field">
                             
-                            <textarea  id="cursive"name="page[body]" ></textarea>
+                            <textarea  id="cursive"name="page[body]" style="background-color:rgb(245, 245, 209)" ></textarea>
                            
                     </div>
 
@@ -67,7 +67,7 @@
                 
                 
                 </form>
-                <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+                <!-- <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img"> -->
             </div>
             
                     
