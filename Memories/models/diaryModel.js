@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 // const diarySchema = mongoose.Schema({
 //     user : {
 //         type : mongoose.Schema.Types.ObjectId,
@@ -12,13 +12,18 @@ const mongoose = require('mongoose');
 // });
 
 var diarySchema = new mongoose.Schema({
-    title : String,
-    image :{type:String, required: true},
-    body : String,  
-    created : Date
+    title : String, 
+    image : String,   
+    body : String, 
+    created : Date,
+    author : {
+        id :{
+            type : mongoose.Schema.Types.ObjectId,
+            ref : "User"
+        },
+        username :String
+    }   
 });
  
-// var Diary = mongoose.model("Diary", diarySchema);
-
  
-module.exports = mongoose.model("Diary", diarySchema);
+module.exports = mongoose.model("Diary", diarySchema); 
