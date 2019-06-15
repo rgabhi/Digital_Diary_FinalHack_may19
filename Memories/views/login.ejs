@@ -1,5 +1,14 @@
-<% include ./partials/NoNavheaderbootstrap %>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Diary App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body style="background: #007bff;background: linear-gradient(to right, #0062E6, #33AEFF);">
         
 
         <!-- <form action="/login" method="POST">
@@ -7,32 +16,42 @@
             <input type="password" name="password" placeholder="password">
             <button>Log in</button>
         </form> -->
+                    <div class="container">
+                        <div class="container">
+                            <div class="col-lg-2 offset-lg-1" style=" margin-top: 25%;">
+                                    <div class="card" style="width: 50rem;">
+                                            <div class="card-body">
+                                <h1>Log In</h1>
+                                <form action="/login" method="POST">
+                                    <div class="form-group">
+                                        <label for="inputEmail">Email</label>
+                                        <input type="text" class="form-control" name="username" id="inputEmail" placeholder="username">
+                                        </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Sign in</button>
 
-    <div class="container">
-        <div class="col-4">
-                <h1>Log In</h1>
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="text" class="form-control" name="username" id="inputEmail" placeholder="username">
-            </div>
-            <div class="form-group">
-                <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
-            </div>
-            <!-- <div class="form-group">
-                <label class="form-check-label"><input type="checkbox"> Remember me</label>
-            </div> -->
-            <button type="submit" class="btn btn-primary">Sign in</button>
-
-            <button type="button" class="btn btn-secondary"><a style="color:black; text-decoration:none" href="/register">Sign Up</a></button>
-        </form>
-    </div>
-    
-</div>
-
-        
+                                    <button type="button" class="btn btn-secondary"><a style="color:black; text-decoration:none" href="/register">Sign Up</a></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>   
         <!-- <button type ="submit" class ="btn btn-primary"><a href="/login">Login!</a></button> -->
         <!-- <button type ="submit" class ="btn btn-primary"><a href="/logout">Log out</a></button> -->
 
 <% include ./partials/footerbootstrap %> 
+
+<!-- 
+<div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div> -->
