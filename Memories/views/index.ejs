@@ -6,12 +6,14 @@
         <div class="ui divided items">
             <% pages.forEach(function(page){ if(userName  ===  page.author.username ){%>
                 <!-- <div style="margin-top: 100px; margin-left: 30%"> -->
-                <div class="item">
+                    <div class="content">
+                        <a style="color: black;font-weight: bolder;font-size: 200%" class="header" href="/diary/<%=page._id %>"> <%= page.title %></a>
+                    </div>
+                    
+                    <div class="item">
+                    
                     <div class="image">
                             <img  src="<%= page.image %> ">
-                    </div>
-                    <div class="content">
-                            <a class="header" href="/diary/<%=page._id %>"> <%= page.title %></a>
                     </div>
                     
                     <div class="description">
