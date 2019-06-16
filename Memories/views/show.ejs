@@ -48,14 +48,14 @@
 
 <div class="ui main text container segment">
     <div class = "ui header"><%= page.title %></div>
-    <img style="height: 300px; width:300px" src="<%= page.image %> ">
+    <img style="height: 300px; width:300px" src="/<%= page.image %> ">
     <div class="description">
         <p><%= page.body %></p>
     </div>
     
-    <a class="ui orange basic button" href="/diary/<%=page._id %>/edit">Edit</a>
+    <a class="btn btn-outline-success" href="/diary/<%=page._id %>/edit">Edit</a>
     <form  style="display: inline" action="/diary/<%= page._id%>?_method=DELETE" method="POST">
-        <button  class="ui red basic button">Delete</button>   
+        <button  class="btn btn-outline-danger">Delete</button>   
     </form>
      
 </div>
