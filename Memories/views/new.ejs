@@ -1,100 +1,169 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Diary App</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
 
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">DIARY</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="/diary">Home</a>
-                <li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/diary/new">New</a>
-                <li>
-            <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Happy</a>
-                        <a class="dropdown-item" href="#">Sad</a>
-                        <a class="dropdown-item" href="#">Scary</a>
-                        <a class="dropdown-item" href="#">Anger</a>
-                        <!-- <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a> -->
-                    </div>
-            </div>         
-              </ul>
-              <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-          </nav>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+            <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/app.css"> -->
+            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+            <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet">
+           
+            <link rel="stylesheet" type="text/css" href="/stylesheets/new.css">
+    
+    
+</head>
+<body > 
+        <div class="ui main text container segment" id="uiMain" style="background-color:rgb(245, 245, 209)">
 
-        <!-- <div class="form-group">
-            <div class = "ui huge header">New Page</div>
-            
-            <form class="ui form" action="/diary" method="POST">
-                <div class="field">
-                    <label >Title</label>
-                    <input type="text" name="title" placeholder="title">
-                </div>
-                <div class="field">
-                        <label >Image</label>
-                        <input type="text" name="image" placeholder="image">
-                </div>
-            
-                <div class="field">
-                        <label >Page Content</label>
-                        <textarea name="bodyy"></textarea>
-                    
-                </div>
-                    
-                <input class="ui inverted big green button" type="submit">
-            
-        
-            
-            
-            </form>
-        </div> -->
-        <div style="margin-top:8% " class="row">
-            <div class="col-lg-6 offset-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="card">
-                        <div class="card-body">
-                        <form action="/diary" method="POST">
-                            <div class="form-group">
-                            <label for="Title">Title</label>
-                            <input type="text" class="form-control" name="title" placeholder="title">
-                            </div>
-                            <div class="form-group">
-                            <label for="Image">Image</label>
-                            <input type="file" class="form-control-file" name="image">
-                            </div>
-                            <div class="form-group">
-                            <label for="pagecontent">Page Content</label>
-                            <textarea class="form-control" name="bodyy" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                <h1  class = "ui huge header " id="typewrite" >
+                        <a href="" class="typewrite" data-period="2000"  style="text-align: center" data-type='[ "Hello Dear", "Happy Writing :) " ]'>
+                          <span class="wrap"></span>
+                        </a>
+                      </h1>
+                <form class="ui form" action="/diary" method="POST" enctype="multipart/form-data" id="uploadimages">
+                    <div class="field">
+                        
+                        <input type="text" name="title" placeholder="title" style="background-color:rgb(245, 245, 209)">
                     </div>
-                </div>
+                    <div class="field">
+                            
+                            <input type="file" id="files" name="image" placeholder="image" style="background-color:rgb(245, 245, 209)" >
+                            <img id="image"> 
+                            
+                               
+                        </div>
+
+                          
+                    
+                   
+                    <div class="field">
+                            
+                            <textarea  id="cursive"name="bodyy" style="background-color:rgb(245, 245, 209)" ></textarea>
+                           
+                    </div>
+                    <label>Which mood defines you today ??</label>
+                    <div class="field">
+                            <div class="row">
+                                <div class="col-lg-4">
+                            <label><input type="radio"   class="radio" name="radio" value="happy" >
+                            <img src="/images/happy.gif" alt="happy mood"  class="mood" value="happy"> </label>
+
+                            <label><input type="radio" name="radio" class="radio" value="happy" >   
+                            <img src="/images/sad.gif" alt="sad mood" class="mood" value="sad"></label>
+
+                            <label><input type="radio"  name="radio" value="happy" class="radio"  >
+                            <img src="/images/scared.gif" alt="scared" class="mood" value="scared"></label>
+
+                            <label><input type="radio"  name="radio" value="happy" class="radio"  >
+                            <img src="/images/angry.gif" alt="angry mood" class="mood" value="angry"></label>
+                           </div>
+                           </div>
+                    </div>
+                        
+                    <input class="ui inverted big green button" type="submit">
+                    <span id = "status"></span>
+                
+               
+                
+                
+                </form>
+                <!-- <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img"> -->
             </div>
-        </div>
-    </div>
-<%include ./partials/footerbootstrap %>
+            
+                    
+
+               </body>
+               <script>
+               document.getElementById("files").onchange = function () {
+               var reader = new FileReader();
+
+                reader.onload = function(e) {
+        // get loaded data and render thumbnail.
+                document.getElementById("image").src = e.target.result;
+                 };
+
+                 // read the image file as a data URL.
+                reader.readAsDataURL(this.files[0]);    
+                };
+
+
+
+
+
+
+
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+<script>
+    
+      </script>
+
+</html> 
+ 
+
+
+
+<!-- <%include ./partials/footer %>  -->
