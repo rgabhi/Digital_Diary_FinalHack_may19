@@ -8,13 +8,13 @@ const storage = multer.diskStorage({
         cb(null,'./uploads/');
     },
     filename : function(req, file,cb){
-        cb(null, new Date().toISOString() + file.originalname);
+        cb(null, new Date().toISOString().replace(/:/,'-') + file.originalname);
     }
 
 });
 
 const fileFilter = function(req,file,cb){
-    if(file.mimetype === 'image/jpeg' || file.mimetype ==='image/png'|| file.mimetype ==='image/gif' || file.mimetype ==='video/mp4' ){
+    if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg'|| file.mimetype ==='image/png'|| file.mimetype ==='image/gif' || file.mimetype ==='video/mp4'  ){
         cb(null,true);
     }else{
         cb(null,false);
@@ -103,9 +103,9 @@ router.get("/:id/edit",isLoggedIn,function(req,res){
 
 //UPDATE ROUTE
 
-router.put("/:id",isLoggedIn,function(req,res){
+router.put("/:id",isLoggedIn,upload.single('image'),function(req,res){
     var title = req.body.title;
-    var image = req.body.image;
+    var image = req.file.path;
     var body = req.body.bodyy; 
     var author = {
         id : req.user._id,
@@ -114,6 +114,7 @@ router.put("/:id",isLoggedIn,function(req,res){
     var editPage = {title : title, image : image, body : body , author : author};
     
     Diary.findByIdAndUpdate(req.params.id,editPage,function(err,updatedPage){
+        console.log(req.file);
         if(err){
             res.redirect("/diary");
         }else{

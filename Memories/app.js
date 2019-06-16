@@ -11,7 +11,7 @@ var passportLocalMongoose = require("passport-local-mongoose");
 
 var app = express();
 
-const port = process.env.PORT || 3003;
+const port = process.env.PORT || 3001;
 
 var diary = require('./routes/diary'); 
 var user = require('./routes/user');

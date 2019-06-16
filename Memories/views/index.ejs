@@ -15,7 +15,7 @@
                     
                     
             </head>
-            <body style="background: linear-gradient(to right, #d8d3c7, #f7f0e1, #ffe2d8, #e7f2d5);">
+            <body>
                 <div class="ui fixed inverted menu">
                         <div class="ui container">
                                 <div class= "header item">INDEX </div> 
@@ -45,7 +45,7 @@
 	
                     </head>
                 
-                    <body style="background: linear-gradient(to right, #d8d3c7, #f7f0e1, #ffe2d8, #e7f2d5);">
+                    <body>
                         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                             <a class="navbar-brand" href="#">DIARY</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
                                 <li>
                             <div class="btn-group">
                                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Action
+                                        Mood
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Happy</a>
@@ -88,12 +88,13 @@
 
 
                 <div class="container">
-                        
+     
                         
                         <header>
                             <h1 style="margin-top : 100px"><%= userName %>'s Diary</h1>	
                             
                         </header>
+                        <!-- <div class="col-lg-1 offset-lg-3"> -->
                         <div class="main clearfix">
                             <div class="bb-custom-wrapper">
                                 
@@ -134,13 +135,18 @@
                                    
                                 </div>
                                 <nav>
-                                    <a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
-                                    <a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
-                                    <a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
-                                    <a id="bb-nav-last" href="#" class="bb-custom-icon bb-custom-icon-last">Last page</a>
+                                    <button type="button" id="bb-nav-first" class="btn btn-outline-danger btn-sm" >&lt;&lt;</button>
+                                    <button type="button" id="bb-nav-prev" class="btn btn-outline-success btn-sm" >&lt;</button>
+                                    <button type="button" id="bb-nav-next"  class="btn btn-outline-success btn-sm" >&gt;</button>
+                                    <button type="button" id="bb-nav-last"  class="btn btn-outline-danger btn-sm">&gt;&gt;</button>
                                 </nav>
                             </div>
+                            
+                        
+                        
+                        
                         </div>
+                        <!-- </div> -->
                     </div>
                     
 <!-- ............................................................................................................ -->

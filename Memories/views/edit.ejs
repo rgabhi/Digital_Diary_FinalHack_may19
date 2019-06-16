@@ -5,7 +5,7 @@
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
             <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
     </head>
-    <body  style="background: linear-gradient(to right, #f7a8ac, #f4d2d2, #d68282, #bc7387);">
+    <body  style="background: linear-gradient(to right, #f7a8ac, #f7b9cd, #d68282, #bc7387);">
          <div class="ui fixed inverted menu">
                  <div class="ui container">
                         <div class= "header item">INDEX </div> 
@@ -16,16 +16,16 @@
                 </div>
         </div>
 <div class="ui main text container segment">
-    <div class = "ui huge header">EDIT  <%= page.title %></div>
+    <div class = "ui huge header">EDIT :  <%= page.title %></div>
     
-    <form class="ui form" action="/diary/<%= page._id%>?_method=PUT" method="POST">
+    <form class="ui form" action="/diary/<%= page._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
         <div class="field">
             <label >Title</label>
             <input type="text" name="title" value="<%=page.title%>">
         </div>
         <div class="field">
                 <label >Image</label>
-                <input type="text" name="image" value="<%=page.image%>" >
+                <input type="file" id="files" name="image" placeholder="image"  >
         </div>
        
         <div class="field">
