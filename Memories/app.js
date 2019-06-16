@@ -27,6 +27,7 @@ mongoose.connect("mongodb+srv://rgabhi:abhi1998@cluster0-f3ajx.mongodb.net/diary
 });
 app.set("view engine", "ejs" );
 app.use(express.static("public"));
+app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(methodOverride("_method"));

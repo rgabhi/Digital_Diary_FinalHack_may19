@@ -1,92 +1,109 @@
 #cursive {
-    /* Set a font size */
-    font-size: 20px;
-    
-    /* Begin The Redundancies */
-    background-image: 
-      -webkit-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em),
-      -webkit-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
-    background-image: 
-      -moz-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em),
-      -moz-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
-    background-image: 
-      -o-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em), 
-      -o-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
-    background-image: 
-      -ms-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em), 
-      -ms-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
-    -webkit-background-size: 100% 2em;
-    -moz-background-size: 100% 2em;
+  /* Set a font size */
+  font-size: 20px;
   
-    /* In a perfect world... */
-    background-image: 
-      linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em), 
-      linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
-    background-size: 90% 1.5em;
-  }
+  /* Begin The Redundancies */
+  background-image: 
+    -webkit-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em),
+    -webkit-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
+  background-image: 
+    -moz-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em),
+    -moz-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
+  background-image: 
+    -o-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em), 
+    -o-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
+  background-image: 
+    -ms-linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em), 
+    -ms-linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
+  -webkit-background-size: 100% 2em;
+  -moz-background-size: 100% 2em;
+
+  /* In a perfect world... */
+  background-image: 
+    linear-gradient(0deg, transparent 5em, rgba(255,0,0,.2) 0, transparent 5.1em), 
+    linear-gradient(rgba(0,0,255,.3) 1px, transparent 0);
+  background-size: 90% 1.5em;
+}
 
 .thumb-image{
-    float:left;width:100px;
-    position:relative;
-    padding:5px;
-   }
+  float:left;width:100px;
+  position:relative;
+  padding:5px;
+ }
 
-   #uiMain{
-       background-color: rgb(248, 80, 50);
-       border-style: solid;
-       border-width: 5px;
-       font-size: 20px;
-       height: 130%;
-       /* //width: 70%; */
-       background: #fff;
-  box-shadow:
-    /* The top layer shadow */
-    0 1px 1px rgba(0,0,0,0.15),
-    /* The second layer */
-    0 10px 0 -5px #eee,
-    /* The second layer shadow */
-    0 10px 1px -4px rgba(0,0,0,0.15),
-     /* The third layer */
-    0 20px 0 -10px #eee,
-    /* The third layer shadow */
-    0 20px 1px -9px rgba(0,0,0,0.15);
-    /* Padding for demo purposes */
-    padding: 20px;
-       
-   }
-   input:focus,
+ #uiMain{
+     background-color: rgb(248, 80, 50);
+     border-style: solid;
+     border-width: 5px;
+     font-size: 20px;
+     height: 130%;
+     /* //width: 70%; */
+     background: #fff;
+box-shadow:
+  /* The top layer shadow */
+  0 1px 1px rgba(0,0,0,0.15),
+  /* The second layer */
+  0 10px 0 -5px #eee,
+  /* The second layer shadow */
+  0 10px 1px -4px rgba(0,0,0,0.15),
+   /* The third layer */
+  0 20px 0 -10px #eee,
+  /* The third layer shadow */
+  0 20px 1px -9px rgba(0,0,0,0.15);
+  /* Padding for demo purposes */
+  padding: 20px;
+     
+ }
+ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 #cursive{
-    font-family: 'Waiting for the Sunrise', cursive; 
-    
-    margin: 10px 0px; 
-    letter-spacing: 6px; 
-    font-weight: bold;
-  } 
-
-  #typerwrite{
-    text-align: center;
-    color:rgb(211, 158, 44);
-    padding-top:10em;
-
-  }
+  font-family: 'Waiting for the Sunrise', cursive; 
   
-   * { color:rgb(211, 158, 44); text-decoration: none;} 
+  margin: 10px 0px; 
+  letter-spacing: 6px; 
+  font-weight: bold;
+} 
+
+#typerwrite{
+  text-align: center;
+  color:rgb(211, 158, 44);
+  padding-top:10em;
+
+}
+
+ * { color:rgb(211, 158, 44); text-decoration: none;} 
 
 .mood{
-    width: 150px;
-    height: 150px;
+  width: 140px;
+  height: 140px;
 }  
 #image{
-    width: 150px;
-    height: 150px;
+  width: 140px;
+  height: 140px;
 }  
 
+/* HIDE RADIO */
+[type=radio] { 
+position: absolute;
+opacity: 0;
+width: 0;
+height: 0;
+}
 
-    
-    
+/* IMAGE STYLES */
+[type=radio] + img {
+cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+outline: 2px solid #f00;
+}
+
+  
+  

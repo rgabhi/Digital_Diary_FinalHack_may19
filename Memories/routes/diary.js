@@ -1,7 +1,34 @@
 const express = require('express');
 const router = express.Router();
-
+const multer = require("multer");
 const mongoose = require('mongoose');
+
+const storage = multer.diskStorage({
+    destination : function(req,file,cb){
+        cb(null,'./uploads/');
+    },
+    filename : function(req, file,cb){
+        cb(null, new Date().toISOString() + file.originalname);
+    }
+
+});
+
+const fileFilter = function(req,file,cb){
+    if(file.mimetype === 'image/jpeg' || file.mimetype ==='image/png'|| file.mimetype ==='image/gif' || file.mimetype ==='video/mp4' ){
+        cb(null,true);
+    }else{
+        cb(null,false);
+    }
+};
+
+const upload = multer({storage : storage, 
+    limits:{
+        fileSize : 1024*1024*8
+        },
+    fileFilter : fileFilter
+
+});
+
 var Diary = require('../models/diaryModel');
 
 // INDEX ROUTE
@@ -27,13 +54,14 @@ router.get('/',isLoggedIn,function(req,res){
 //NEW ROUTE
 router.get('/new',isLoggedIn,function(req,res){
     res.render("new.ejs");
-
+ 
 });
 
 //CREATE ROUTE
-router.post('/',isLoggedIn,function(req,res){
+router.post('/',upload.single('image'),function(req,res,next){
+     console.log(req.file);
     var title = req.body.title;
-    var image = req.body.image;
+    var image = req.file.path;
     var body = req.body.bodyy; 
     var author = {
         id : req.user._id,
